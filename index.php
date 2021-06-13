@@ -19,7 +19,7 @@ require_once 'admin/backend/config.php';
 
 <body>
     <?php
-    require_once 'backend/conn.php';
+    require_once 'admin/backend/conn.php';
     $query = "SELECT * FROM rides";
     $statement = $conn->prepare($query);
     $statement->execute();
@@ -32,16 +32,17 @@ require_once 'admin/backend/config.php';
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia modi dolore magnam! Iste libero voluptatum autem, sapiente ullam earum nostrum sed magnam vel laboriosam quibusdam, officia, esse vitae dignissimos nulla?
         </aside>
         <main>
-            <?php foreach($rides as $ride): ?>
-                <tr>
-                    <td><?php echo $ride['title']; ?></td>
-                    <td><?php echo $ride['themeland']; ?></td>
-                    <td><?php echo $ride['min_length']; ?></td>
-                    <td><?php echo $ride['fast_pass']; ?></td>
-                    <td><a href="edit.php?id=<?php echo $ride['id']; ?>">aanpassen</a></td>
-                </tr>
-            <?php endforeach; ?>
-            <!-- hier komen de attractiekaartjes -->
+            <div class="attracties">
+                <?php foreach($rides as $ride): ?>
+                    <div class="attractie <?php if ($ride['fast_pass'] == True)echo "large";?>">
+                        <img src="img/attracties/<?php echo $ride['img_file']; ?>" alt="foto van <?php echo $ride['title']; ?>">
+                        <p><?php echo $ride['themeland']; ?></p>
+                        <h2><?php echo $ride['title']; ?></h2>
+                        <p><?php echo $ride['description']; ?></p>
+                        <p><?php echo $ride['min_length']; ?>cm minimalen lengte</p>
+                    </div>
+                <?php endforeach; ?>
+            </div>
         </main>
     </div>
 

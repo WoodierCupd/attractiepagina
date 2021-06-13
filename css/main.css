@@ -177,6 +177,21 @@ th{
     text-align: left;
 }
 
+/* attractie kaartjes */
+.attracties{
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+  grid-gap: 15px;
+  grid-auto-flow: row dense;
+}
+.attracties img{
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+.large{
+  grid-column: span 2;
+}
 
 
 
