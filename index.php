@@ -36,10 +36,22 @@ require_once 'admin/backend/config.php';
                 <?php foreach($rides as $ride): ?>
                     <div class="attractie <?php if ($ride['fast_pass'] == True)echo "large";?>">
                         <img src="img/attracties/<?php echo $ride['img_file']; ?>" alt="foto van <?php echo $ride['title']; ?>">
-                        <p><?php echo $ride['themeland']; ?></p>
-                        <h2><?php echo $ride['title']; ?></h2>
-                        <p><?php echo $ride['description']; ?></p>
-                        <p><?php echo $ride['min_length']; ?>cm minimalen lengte</p>
+                        <div class="attractie-onder">
+                            <div class="attractie-info">
+                                <p class="themeland"><?php echo  $result_str = strtoupper($ride['themeland']); ?></p>
+                                <h2><?php echo $ride['title']; ?></h2>
+                                <p><?php echo $ride['description']; ?></p>
+                                <p class="lenght"><b><?php echo $ride['min_length']; ?>cm</b> minimalen lengte</p>
+                            </div>
+                            <?php if ($ride['fast_pass'] == True){?>
+                                <div class="fast-pass">
+                                    <p>Deze attracite is alleen te bezoeken met een fastpass</p>
+                                    <p>Boek nu en sla de wachtrij over</p>
+                                    <button>FAST PASS</button>
+                                </div>
+                            <?php }?>
+                        </div>
+                        
                     </div>
                 <?php endforeach; ?>
             </div>

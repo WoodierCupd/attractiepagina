@@ -180,8 +180,8 @@ th{
 /* attractie kaartjes */
 .attracties{
   display: grid;
-  grid-template-columns: 25% 25% 25% 25%;
-  grid-gap: 15px;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 40px;
   grid-auto-flow: row dense;
 }
 .attracties img{
@@ -189,9 +189,41 @@ th{
   height: 200px;
   object-fit: cover;
 }
+.attractie{
+  color: #0B351D;
+  border-radius: 25px;
+  overflow: hidden;
+  box-shadow: 8px 8px 18px 5px rgba(153,153,153,0.8);
+  background-color: #F5FCF8;
+}
+.attractie h2{
+  font-family: Oxanium, Arial, sans-serif;
+  font-weight: 600;
+}
 .large{
   grid-column: span 2;
 }
+.lenght, .themeland{
+  color: #849D8E;
+}
+.attractie-info{
+  padding: 10px;
+  
+}
+.attractie-onder{
+  display: flex;
+  justify-content: space-between;
+  min-height: calc(100% - 200px);
+}
+.fast-pass{
+  background-color: white;
+
+}
+.large .attractie-info, .fast-pass{
+  width: 50%;
+}
+
+
 
 
 
