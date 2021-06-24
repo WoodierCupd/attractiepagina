@@ -29,7 +29,16 @@ require_once 'admin/backend/config.php';
     <?php require_once 'header.php'; ?>
     <div class="container content">
         <aside>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia modi dolore magnam! Iste libero voluptatum autem, sapiente ullam earum nostrum sed magnam vel laboriosam quibusdam, officia, esse vitae dignissimos nulla?
+            <form action="admin/backend/ridesController.php" method="POST">
+                <input type="hidden" name="action" value="filter">
+                <select name="themeland" id="themeland">
+                    <option value=""> - Filter locatie - </option>
+                    <option value="familyland">Familyland</option>
+                    <option value="waterland">Waterland</option>
+                    <option value="adventureland">Adventureland</option>
+                </select>
+                <input type="submit">
+            </form>
         </aside>
         <main>
             <div class="attracties">
