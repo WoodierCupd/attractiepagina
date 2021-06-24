@@ -131,7 +131,3 @@ if($action == "delete")
     header("Location: ../attracties/index.php");
     exit;
 }
-if($action == "filter")
-{
-    header("Location: ../../index.php");
-}

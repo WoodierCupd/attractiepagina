@@ -20,24 +20,35 @@ require_once 'admin/backend/config.php';
 <body>
     <?php
     require_once 'admin/backend/conn.php';
-    $query = "SELECT * FROM rides";
-    $statement = $conn->prepare($query);
-    $statement->execute();
-    $rides = $statement->fetchAll(PDO::FETCH_ASSOC);
+    if(empty($_GET['themeland']))
+    {
+        $query = "SELECT * FROM rides";
+        $statement = $conn->prepare($query);
+        $statement->execute();
+        $rides = $statement->fetchAll(PDO::FETCH_ASSOC);
+    }
+    else{
+        $query = "SELECT * FROM rides WHERE themeland = :themeland";
+        $statement = $conn->prepare($query);
+        $statement->execute([
+            "themeland" => $_GET['themeland']
+        ]);
+        $rides = $statement->fetchAll(PDO::FETCH_ASSOC);
+    }
+
     ?>
     
     <?php require_once 'header.php'; ?>
     <div class="container content">
         <aside>
-            <form action="admin/backend/ridesController.php" method="POST">
-                <input type="hidden" name="action" value="filter">
-                <select name="themeland" id="themeland">
+            <form action="" method="GET">
+                <select name="themeland" id="themeland" onchange='this.form.submit()'>
                     <option value=""> - Filter locatie - </option>
                     <option value="familyland">Familyland</option>
                     <option value="waterland">Waterland</option>
                     <option value="adventureland">Adventureland</option>
+                    <option value="">Geen filter</option>
                 </select>
-                <input type="submit">
             </form>
         </aside>
         <main>
@@ -65,6 +76,9 @@ require_once 'admin/backend/config.php';
                 <?php endforeach; ?>
             </div>
         </main>
+        <script>
+
+        </script>
     </div>
 
 </body>
