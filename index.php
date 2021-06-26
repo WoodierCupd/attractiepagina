@@ -43,11 +43,11 @@ require_once 'admin/backend/config.php';
         <aside>
             <form action="" method="GET">
                 <select name="themeland" id="themeland" onchange='this.form.submit()'>
-                    <option value=""> - Filter locatie - </option>
-                    <option value="familyland">Familyland</option>
-                    <option value="waterland">Waterland</option>
-                    <option value="adventureland">Adventureland</option>
-                    <option value="">Geen filter</option>
+                    <option value=""><?php if(empty($_GET['themeland'])){echo " - Filter op locatie - ";}else{echo ucfirst($_GET['themeland']);} ?></option>
+                    <?php if($_GET['themeland'] != "familyland"){echo '<option value="familyland">Familyland</option>';} ?>
+                    <?php if($_GET['themeland'] != "waterland"){echo '<option value="waterland">Waterland</option>';} ?>
+                    <?php if($_GET['themeland'] != "adventureland"){echo '<option value="adventureland">Adventureland</option>';} ?>
+                    <?php if($_GET['themeland'] != ""){echo '<option value="">Geen filter</option>';} ?>
                 </select>
             </form>
         </aside>

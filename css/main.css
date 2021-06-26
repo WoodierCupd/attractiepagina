@@ -316,6 +316,32 @@ th{
    Modify as content requires.
    ========================================================================== */
 
+@media only screen and (max-width: 1250px) {
+  .container.content{
+    grid-template-columns: 150px 1fr;
+  }
+}
+@media only screen and (max-width: 1025px) {
+  .attracties{
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 20px;
+  }
+}
+@media only screen and (max-width: 800px) {
+  .container.content{
+    grid-template-columns: 100px 1fr;
+  }
+  .attracties{
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+  }
+}
+@media only screen and (max-width: 723px) {
+  .attracties{
+    grid-template-columns: 1fr;
+    grid-gap: 10px;
+  }
+}
 @media only screen and (min-width: 35em) {
   /* Style adjustments for viewports that meet the condition */
 }
